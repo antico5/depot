@@ -1,0 +1,21 @@
+html
+  head
+    title The Pragmatic Store
+    = csrf_meta_tags
+
+    = stylesheet_link_tag    'application', media: 'all',
+      'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application',
+      'data-turbolinks-track': 'reload'
+  body class="#{ controller.controller_name }"
+    #banner
+      = image_tag 'logo.svg', alt: 'The Pragmatic Store'
+    #columns
+      #side
+        ul
+          li = link_to 'Home'
+          li = link_to 'News'
+          li = link_to 'Questions'
+          li = link_to 'Contact'
+      #main
+        = yield
