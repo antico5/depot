@@ -11,3 +11,9 @@ two:
   description: MyText
   image_url: MyString.jpg
   price: 9.99
+
+raspberry:
+  title: Raspberry PI
+  description: Super cool gadget
+  image_url: http://i.ebayimg.com/images/g/-lsAAOSwubRXIYvb/s-l300.jpg
+  price: 34.50

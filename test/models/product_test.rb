@@ -1,6 +1,18 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
+  setup do
+    @valid_attributes = { title: 'sample_product',
+                          description: 'some cool description',
+                          price: 2.50,
+                          image_url: 'image.jpg'}
+  end
+
+  test "create with valid attributes" do
+    p = Product.new @valid_attributes
+    assert p.valid?
+  end
+
   test "attributes shouldn't be empty" do
     p = Product.new
     assert p.invalid?
@@ -23,5 +35,11 @@ class ProductTest < ActiveSupport::TestCase
     assert p.errors[:image_url].any?
     p.update image_url: "valid.jpg"
     assert p.errors[:image_url].empty?
+  end
+
+  test "title should be unique" do
+    attributes = @valid_attributes.merge title: products(:raspberry).title
+    p = Product.create attributes
+    assert p.errors[:title].any?
   end
 end
