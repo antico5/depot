@@ -1,6 +1,9 @@
 p#notice = notice
-
+h3 Current cart
+ul
+  - @cart.line_items.each do |line_item|
+    li = line_item.product.title
 
 = link_to 'Edit', edit_cart_path(@cart)
 '|
-= link_to 'Back', carts_path
+= link_to 'Back', :back
