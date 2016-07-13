@@ -4,4 +4,9 @@ class Product < ApplicationRecord
   validates :title, uniqueness: true
   validates :image_url, allow_blank: true,
     format: { with: /\.(gif|jpg|png)\Z/, message: 'must be PNG, JPG or GIF' }
+
+  def self.latest
+    order(:updated_at).last
+  end
 end
+
