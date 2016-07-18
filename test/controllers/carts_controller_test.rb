@@ -28,6 +28,12 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should redirect to store index if invalid cart id is given" do
+    get cart_url(id: 1235)
+    assert_redirected_to store_index_path
+    assert flash[:notice] =~ /Invalid cart/
+  end
+
   test "should get edit" do
     get edit_cart_url(@cart)
     assert_response :success
