@@ -4,13 +4,13 @@ one:
   title: MyString
   description: MyText
   image_url: MyString.png
-  price: 9.99
+  price: 5
 
 two:
   title: MyString2
   description: MyText
   image_url: MyString.jpg
-  price: 9.99
+  price: 10
 
 raspberry:
   title: Raspberry PI

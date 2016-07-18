@@ -1,10 +1,14 @@
 p#notice = notice
 h3 Current cart
-ul
+table
   - @cart.line_items.each do |line_item|
-    li = format_line_item line_item
-  = button_to 'Empty cart', @cart, method: :delete
+    tr
+      td = "#{ line_item.quantity } x"
+      td = line_item.product.title
+      td.item_price = number_to_currency line_item.total_price
+  tr.total_line
+    td colspan=2 Total
+    td.total_cell = number_to_currency @cart.total_price
 
-= link_to 'Edit', edit_cart_path(@cart)
-'|
+= button_to 'Empty cart', @cart, method: :delete
 = link_to 'Back', :back

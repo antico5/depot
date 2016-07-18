@@ -11,4 +11,9 @@ class Cart < ApplicationRecord
     line_item
   end
 
+  def total_price
+    line_totals = line_items.joins(:product).select 'quantity * price as line_total'
+    line_totals.map(&:line_total).sum
+  end
+
 end
