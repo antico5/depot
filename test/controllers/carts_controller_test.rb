@@ -49,6 +49,7 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
       delete cart_url(@cart)
     end
 
-    assert_redirected_to carts_url
+    assert_redirected_to store_index_url
+    assert flash[:notice] =~ /emptied/
   end
 end

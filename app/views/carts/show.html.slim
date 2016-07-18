@@ -3,6 +3,7 @@ h3 Current cart
 ul
   - @cart.line_items.each do |line_item|
     li = format_line_item line_item
+  = button_to 'Empty cart', @cart, method: :delete
 
 = link_to 'Edit', edit_cart_path(@cart)
 '|
