@@ -24,11 +24,6 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     assert_select 'h3', 'Current cart'
   end
 
-  test "should show line_item" do
-    get line_item_url(@line_item)
-    assert_response :success
-  end
-
   test "should get edit" do
     get edit_line_item_url(@line_item)
     assert_response :success

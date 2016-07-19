@@ -12,10 +12,11 @@ html
       = image_tag 'logo.svg', alt: 'The Pragmatic Store'
     #columns
       #side
-        #cart
-          = render @cart if @cart && !@cart.empty?
+        - if @cart
+          = hidden_div_if @cart.empty?, id: 'cart'
+            = render @cart if @cart
         ul
-          li = link_to 'Home'
+          li = link_to 'Home', '/'
           li = link_to 'News'
           li = link_to 'Questions'
           li = link_to 'Contact'
