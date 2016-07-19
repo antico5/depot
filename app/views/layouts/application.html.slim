@@ -12,6 +12,8 @@ html
       = image_tag 'logo.svg', alt: 'The Pragmatic Store'
     #columns
       #side
+        #cart
+          = render @cart unless @cart.empty?
         ul
           li = link_to 'Home'
           li = link_to 'News'

@@ -16,4 +16,8 @@ class Cart < ApplicationRecord
     line_totals.map(&:line_total).sum
   end
 
+  def empty?
+    line_items.empty?
+  end
+
 end
