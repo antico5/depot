@@ -13,7 +13,7 @@ html
     #columns
       #side
         #cart
-          = render @cart unless @cart.empty?
+          = render @cart if @cart && !@cart.empty?
         ul
           li = link_to 'Home'
           li = link_to 'News'
