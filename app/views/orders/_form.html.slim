@@ -11,11 +11,11 @@
     = f.text_field :name
   .field
     = f.label :address
-    = f.text_area :address
+    = f.text_area :address, rows: 3, cols: 40
   .field
     = f.label :email
-    = f.text_field :email
+    = f.email_field :email
   .field
     = f.label :pay_type
-    = f.number_field :pay_type
-  .actions = f.submit
+    = f.select :pay_type, Order.pay_types.keys, prompt: 'Select a payment method.'
+  .actions = f.submit 'Submit order', class: 'submit'
