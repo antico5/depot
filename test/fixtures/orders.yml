@@ -3,11 +3,11 @@
 one:
   name: MyString
   address: MyText
-  email: MyString
+  email: one@fixtures.com
   pay_type: 1
 
 two:
   name: MyString
   address: MyText
-  email: MyString
+  email: two@fixtures.com
   pay_type: 1
