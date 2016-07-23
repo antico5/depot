@@ -17,5 +17,8 @@
 !/log/.keep
 !/tmp/.keep
 
+# YAML files
+*.yml
+
 # Ignore Byebug command history file.
 .byebug_history

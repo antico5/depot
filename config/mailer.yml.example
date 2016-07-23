@@ -1,0 +1,7 @@
+address: "smtp.gmail.com"
+port: 587
+domain: "my.depot"
+authentication: "plain"
+user_name: "dave"
+password: "secret"
+enable_starttls_auto: true
