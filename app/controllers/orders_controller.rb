@@ -33,6 +33,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         clear_current_cart
+        OrderMailer.received(@order).deliver_later
         format.html { redirect_to store_index_url, notice: 'Thank you for your order!' }
         format.json { render :show, status: :created, location: @order }
       else

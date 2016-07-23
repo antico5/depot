@@ -2,6 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-App.productsChannel =
-  App.cable.subscriptions.create 'ProductsChannel',
-    received: (data) -> $(".store #main").html(data.html)
+#App.productsChannel =
+#  App.cable.subscriptions.create 'ProductsChannel',
+#    received: (data) -> $(".store #main").html(data.html)
