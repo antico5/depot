@@ -10,6 +10,12 @@ html
   body class="#{ controller.controller_name }"
     #banner
       = image_tag 'logo.svg', alt: 'The Pragmatic Store'
+      #session
+        - if current_user
+          | Logged in as #{ current_user.name }. 
+          = link_to 'Log out', logout_path, method: :delete
+        - else
+          = link_to 'Admin Login', login_path
     #columns
       #side
         - if @cart
@@ -20,8 +26,5 @@ html
           li = link_to 'News'
           li = link_to 'Questions'
           li = link_to 'Contact'
-        - if current_user
-          p Logged in as #{ current_user.name }.
-          = link_to 'Log out', logout_path, method: :delete
       #main
         = yield
