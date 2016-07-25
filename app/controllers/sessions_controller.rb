@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
   include CurrentUser
 
+  skip_before_action :authorize!, only: [:new, :create]
+
   def new
   end
 
