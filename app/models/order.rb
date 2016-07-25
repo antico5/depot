@@ -1,8 +1,5 @@
 class Order < ApplicationRecord
   has_many :line_items, dependent: :destroy
-  attr_reader :ship_date_changed
-
-  after_update :check_ship_date_changed
 
   enum pay_type: {
     "Check" => 0,
@@ -21,11 +18,4 @@ class Order < ApplicationRecord
     end
   end
 
-  private
-
-  def check_ship_date_changed
-    if self.ship_date_changed?
-      @ship_date_changed = true
-    end
-  end
 end

@@ -48,7 +48,7 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
-        send_shipped_mail(@order) if @order.ship_date_changed
+        send_shipped_mail(@order) if @order.previous_changes[:ship_date]
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
       else
