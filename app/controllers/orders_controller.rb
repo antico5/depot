@@ -48,6 +48,7 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
+        send_shipped_mail(@order) if @order.ship_date_changed
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
       else
@@ -75,12 +76,16 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :address, :email, :pay_type)
+      params.require(:order).permit(:name, :address, :email, :pay_type, :ship_date)
     end
 
     def check_cart_not_empty
       if @cart.empty?
         redirect_to store_index_url, notice: 'Your cart is empty.'
       end
+    end
+
+    def send_shipped_mail order
+      OrderMailer.shipped(order).deliver_later
     end
 end
