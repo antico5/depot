@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class OrdersControllerTest < ActionDispatch::IntegrationTest
+  include ActiveJob::TestHelper
+
   setup do
     @order = orders(:one)
   end
@@ -41,6 +43,16 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     patch order_url(@order), params: { order: { address: @order.address, email: @order.email, name: @order.name, pay_type: @order.pay_type } }
     assert_redirected_to order_url(@order)
   end
+
+  test "should send email when ship_date is updated" do
+    perform_enqueued_jobs do
+      patch order_url(@order), params: { order: { ship_date: DateTime.now } }
+      mail = ActionMailer::Base.deliveries.last
+      assert_equal [@order.email], mail.to
+      assert_match /shipped/, mail.subject
+    end
+  end
+
 
   test "should destroy order" do
     assert_difference('Order.count', -1) do
