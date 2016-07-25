@@ -20,5 +20,8 @@ html
           li = link_to 'News'
           li = link_to 'Questions'
           li = link_to 'Contact'
+        - if current_user
+          p Logged in as #{ current_user.name }.
+          = link_to 'Log out', logout_path, method: :delete
       #main
         = yield
