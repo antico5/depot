@@ -20,6 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es:
+  thanks_you: "Gracias por su pedido."
+  order_updated: "La orden fue actualizada."
+  order_destroyed: "La orden fue eliminada."
+  cart_is_empty: "Su carrito está vacío."
+
   layouts:
     application:
       title: "La tienda pragmática"
@@ -36,3 +41,43 @@ es:
       current_cart: 'Su carrito'
       empty_cart: 'Vaciar'
       checkout: 'Comprar'
+  orders:
+    new:
+      legend: "Complete sus datos"
+    form:
+      invalid_info_msg: "La información suministrada es inválida, por favor revise sus datos: "
+      name: "Nombre"
+      address: "Dirección"
+      email: "Email"
+      pay_type: "Tipo de pago"
+      submit: "Enviar"
+
+  activerecord:
+    models:
+      order: 'pedido'
+    attributes:
+      order:
+        address: 'Dirección'
+        name: 'Nombre'
+        email: 'E-mail'
+        pay_type: 'Forma de pago'
+    errors:
+      messages:
+        inclusion: "no está incluido en la lista"
+        blank: "no puede quedar en blanco"
+        invalid: "tiene un formato inválido"
+  errors:
+    template:
+      body: "Hay problemas con los siguientes campos:"
+      header:
+        one: "1 error ha impedido que este %{model} se guarde"
+        other: "%{count} errores han impedido que este %{model} se guarde"
+
+  number:
+    currency:
+      format:
+        unit: "$US"
+        precision: 2
+        separator: ","
+        delimiter: "."
+        format: "%n&nbsp;%u"

@@ -10,12 +10,12 @@ html
   body class="#{ controller.controller_name }"
     #banner
       = image_tag 'logo.svg', alt: 'The Pragmatic Store'
-      #session
-        - if current_user
-          | Logged in as #{ current_user.name }. 
-          = link_to 'Log out', logout_path, method: :delete
-        - else
-          = link_to 'Admin Login', login_path
+      = form_tag store_index_path, class: 'locale', method: :get do
+        = select_tag 'locale',
+          options_for_select(LANGUAGES, I18n.locale.to_s),
+          onchange: 'this.form.submit()'
+        = submit_tag 'submit'
+        = javascript_tag "$('.locale input').hide()"
     #columns
       #side
         - if @cart

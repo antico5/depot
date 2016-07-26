@@ -20,6 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  thanks_you: "Thanks you for your order."
+  order_updated: "Order was updated successfully."
+  order_destroyed: "Order was deleted successfully."
+  cart_is_empty: "You cart is empty."
+
   layouts:
     application:
       title: "The Pragmatic Store"
@@ -36,4 +41,21 @@ en:
       current_cart: 'Your cart'
       empty_cart: 'Empty cart'
       checkout: 'Checkout'
-
+  orders:
+    new:
+      legend: "Please enter your details"
+    form:
+      invalid_info_msg: "The submitted information is invalid, please check: "
+      name: "Name"
+      address: "Address"
+      email: "Email"
+      pay_type: "Payment type"
+      submit: "Submit"
+  number:
+    currency:
+      format:
+        unit: "USD"
+        precision: 2
+        separator: "."
+        delimiter: ","
+        format: "%u%n"

@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
       if @order.save
         clear_current_cart
         OrderMailer.received(@order).deliver_later
-        format.html { redirect_to store_index_url, notice: 'Thank you for your order!' }
+        format.html { redirect_to store_index_url, notice: t('.thanks_you')}
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.update(order_params)
         send_shipped_mail(@order) if @order.previous_changes[:ship_date]
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
+        format.html { redirect_to @order, notice: t('.order_updated') }
         format.json { render :show, status: :ok, location: @order }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+      format.html { redirect_to orders_url, notice: t('.order_destroyed') }
       format.json { head :no_content }
     end
   end
@@ -82,7 +82,7 @@ class OrdersController < ApplicationController
 
     def check_cart_not_empty
       if @cart.empty?
-        redirect_to store_index_url, notice: 'Your cart is empty.'
+        redirect_to store_index_url, notice: t('.cart_is_empty')
       end
     end
 
