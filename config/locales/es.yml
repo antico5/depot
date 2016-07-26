@@ -19,21 +19,20 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+es:
   layouts:
     application:
-      title: "The Pragmatic Store"
-      home: "Home"
-      news: "News"
-      questions: "Questions"
-      contact: "Contact"
+      title: "La tienda pragmática"
+      home: "Inicio"
+      news: "Novedades"
+      questions: "Preguntas"
+      contact: "Contacto"
   store:
     index:
-      add_to_cart: "Add to cart"
-      store_title: "The Pragmatic Catalog"
+      add_to_cart: "Añadir al carrito"
+      store_title: "Catálogo de productos"
   carts:
     cart:
-      current_cart: 'Your cart'
-      empty_cart: 'Empty cart'
-      checkout: 'Checkout'
-
+      current_cart: 'Su carrito'
+      empty_cart: 'Vaciar'
+      checkout: 'Comprar'
