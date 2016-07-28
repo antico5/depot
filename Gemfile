@@ -6,7 +6,7 @@ gem 'rails', github: 'rails/rails'
 
 # Database
 gem 'sqlite3', group: :development
-gem 'pg', group: :production
+gem 'pg'
 
 # App server
 gem 'puma', '~> 3.0'
