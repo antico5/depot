@@ -20,6 +20,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'rails_serve_static_assets'
 
 # Utilities
 gem 'figaro'
