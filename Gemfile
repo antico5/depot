@@ -5,7 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', github: 'rails/rails'
 
 # Database
-gem 'sqlite3'
+gem 'sqlite3', group: :development
+gem 'pg', group: :production
 
 # App server
 gem 'puma', '~> 3.0'
